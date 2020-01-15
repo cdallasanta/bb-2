@@ -1,0 +1,13 @@
+ol {
+  list-style-type: upper-roman;
+  border: 2px solid blue;
+  background-color: lightblue;
+}
+li {
+  margin: 5px;
+  background-color: lightyellow;
+}
+
+hr {
+  border: 3px solid black;
+}

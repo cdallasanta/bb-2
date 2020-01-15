@@ -1,0 +1,128 @@
+:root {
+  --flightAngle:
+}
+
+/* setting card sizes */
+.card {
+  border: 2px solid black;
+  border-radius: 12px;
+  margin: 3px;
+	overflow: hidden;
+}
+
+#hand .card {
+  height: 20vh;
+}
+
+#backyard .card {
+  height: 20vh;
+}
+
+#flock .card {
+  height: 95%;
+}
+
+#flock .card.zoomed {
+  position: absolute;
+  height: 80%;
+  border-radius: 35px;
+}
+
+.cardBack {
+ height: 125px;
+}
+
+.seasonCard {
+  height: 95%;
+  border: 2px solid black;
+  border-radius: 17px;
+  margin: 3px;
+}
+
+.card:hover {
+  box-shadow: 0 0px 8px 1px purple;
+}
+
+.card.selected {
+  box-shadow: 0 0px 8px 1px blue;
+}
+
+.disabled {
+  opacity: .3;
+}
+
+
+/* spread the hand of cards */
+#hand > .card:nth-child(1) {
+  transform: translate(2.5em, 2em) rotate(-25deg);
+}
+
+#hand > .card:nth-child(2) {
+  transform: translate(1em, .5em) rotate(-10deg);
+}
+
+#hand > .card:nth-child(3) {
+  transform: translate(0em, 0em) rotate(0deg);
+}
+
+#hand > .card:nth-child(4) {
+  transform: translate(-1em, .5em) rotate(10deg);
+}
+
+#hand > .card:nth-child(5) {
+  transform: translate(-2.5em, 2em) rotate(25deg);
+}
+
+/* animations */
+@keyframes flyIn {
+  0% {
+    transform: translate(300%, -200%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {transform: translate(0, 0)}
+}
+
+#flock .bird {
+  animation-name: flyIn;
+  animation-duration: .5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes flyToScore {
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {transform: translate(300%, 200%)}
+}
+
+#flock .flyToScore {
+  animation-name: flyToScore;
+  animation-duration: .5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flyAway {
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {transform: translate(var(--flightAngle), -200%)}
+}
+
+#flock .flyAway {
+  animation-name: flyAway;
+  animation-duration: .5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
